@@ -155,6 +155,7 @@ button.visit-btn i {
   max-width: 600px;
   border-radius: 10px;
   position: relative;
+  animation: slideIn 0.5s, fadeIn 0.5s;
 }
 
 .close {
@@ -211,6 +212,26 @@ button.visit-btn i {
   to {
       transform: translateY(0);
   }
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideIn {
+  from {transform: translateY(-100%);}
+  to {transform: translateY(0);}
+}
+
+@keyframes slideOut {
+  from {transform: translateY(0);}
+  to {transform: translateY(-100%);}
+}
+
+@keyframes fadeOut {
+  from {opacity: 1;}
+  to {opacity: 0;}
 }
 
 /* Responsywność */
