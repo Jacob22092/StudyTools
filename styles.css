@@ -52,6 +52,7 @@ h2 {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
 }
 
 table {
@@ -82,14 +83,17 @@ button.visit-btn {
   background-color: #d76d77;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 10px;
+  border-radius: 50%;
   font-size: 1em;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
   transition: background-color 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 button.visit-btn:hover {
@@ -248,11 +252,6 @@ button.visit-btn i {
       padding: 10px;
   }
 
-  button.visit-btn {
-      padding: 8px 16px;
-      font-size: 0.9em;
-  }
-
   .profile-pic {
       width: 25px;
       height: 25px;
@@ -265,5 +264,34 @@ button.visit-btn i {
 
   .modal-content {
       width: 90%;
+  }
+
+  table, th, td {
+      display: block;
+      width: 100%;
+  }
+
+  th, td {
+      box-sizing: border-box;
+      text-align: left;
+  }
+
+  th {
+      background-color: #f2f2f2;
+      display: none;
+  }
+
+  td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+  }
+
+  tr {
+      margin-bottom: 10px;
+  }
+
+  tr:after {
+      content: '';
+      display: none;
   }
 }
