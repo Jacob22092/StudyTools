@@ -15,6 +15,38 @@ document.addEventListener('DOMContentLoaded', function() {
           new: false,
           image: 'photos/ocr-app.jpg',
           price: 'Free'
+      },
+      {
+          name: 'GoodTape',
+          description: 'Narzędzie do transkrypcji i edycji wideo',
+          link: 'https://goodtape.io/',
+          new: false,
+          image: 'photos/goodtape.jpg',
+          price: 'Free Plan'
+      },
+      {
+          name: 'PhotoRoom Background Remover',
+          description: 'Narzędzie do usuwania tła z obrazów',
+          link: 'https://www.photoroom.com/tools/background-remover',
+          new: false,
+          image: 'photos/photoroom.jpg',
+          price: 'Free'
+      },
+      {
+          name: 'Photopea',
+          description: 'Alternatywa dla popularnego programu Photoshop',
+          link: 'https://www.photopea.com/',
+          new: false,
+          image: 'photos/photopea.jpg',
+          price: 'Free'
+      },
+      {
+          name: 'Canva',
+          description: 'Narzędzie do projektowania grafiki',
+          link: 'https://www.canva.com/',
+          new: false,
+          image: 'photos/canva.jpg',
+          price: 'Free'
       }
   ];
 
@@ -37,18 +69,29 @@ document.addEventListener('DOMContentLoaded', function() {
           modalImage.src = tool.image;
           modalDescription.textContent = tool.description;
           modalPrice.textContent = tool.price;
+          modal.classList.add('fade-in');
           modal.style.display = 'block';
       });
       toolsList.appendChild(listItem);
   });
 
   closeModal.onclick = function() {
-      modal.style.display = 'none';
+      modal.classList.remove('fade-in');
+      modal.classList.add('fade-out');
+      setTimeout(() => {
+          modal.style.display = 'none';
+          modal.classList.remove('fade-out');
+      }, 500);
   }
 
   window.onclick = function(event) {
       if (event.target == modal) {
-          modal.style.display = 'none';
+          modal.classList.remove('fade-in');
+          modal.classList.add('fade-out');
+          setTimeout(() => {
+              modal.style.display = 'none';
+              modal.classList.remove('fade-out');
+          }, 500);
       }
   }
 });
