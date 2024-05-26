@@ -1,6 +1,6 @@
 # StudyTools
 
-StudyTools to aplikacja webowa, która agreguje różne narzędzia przydatne dla studentów w jednym miejscu. Strona jest responsywna, wielojęzyczna i zawiera animacje.
+StudyTools to aplikacja webowa, która agreguje różne narzędzia przydatne dla studentów w jednym miejscu. Strona jest responsywna i wielojęzyczna.
 
 ## Funkcje
 
