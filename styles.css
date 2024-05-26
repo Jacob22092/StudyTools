@@ -77,6 +77,7 @@ tr:hover {
 
 .new-tool {
   background-color: #ffccbc; /* Lighter orange background */
+  position: relative;
 }
 
 button.visit-btn {
@@ -106,18 +107,60 @@ button.visit-btn i {
 }
 
 .badge {
-  background-color: #ff4081;
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 0.8em;
   margin-left: 10px;
+  display: inline-block;
 }
 
-.price-badge {
+.category-badge {
   position: absolute;
   top: 10px;
-  right: 10px;
+  left: 10px;
+}
+
+.category-converter {
+  background-color: #4CAF50; /* Green */
+}
+
+.category-audio {
+  background-color: #FF5722; /* Deep Orange */
+}
+
+.category-graphics {
+  background-color: #2196F3; /* Blue */
+}
+
+.category-editor {
+  background-color: #9C27B0; /* Purple */
+}
+
+.category-planner {
+  background-color: #FF9800; /* Orange */
+}
+
+.category-study {
+  background-color: #795548; /* Brown */
+}
+
+.category-focus {
+  background-color: #00BCD4; /* Cyan */
+}
+
+.new-icon {
+  margin-right: 5px;
+  color: #FF5722; /* Deep Orange */
+}
+
+.free-info {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1em;
+  color: #333;
+  font-weight: bold;
 }
 
 .powered-by {
