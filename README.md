@@ -22,14 +22,6 @@ StudyTools to aplikacja webowa, która agreguje różne narzędzia przydatne dla
 
 ![Screenshot](photos/screenshot.jpg)
 
-## Autor
-
-J.H
-
-GitHub: [Jacob22092](https://github.com/Jacob22092)
-
-LinkedIn: [Jakub Hyziak](https://www.linkedin.com/in/jakub-hyziak-a58193221/)
-
 ## Wsparcie
 
 Jeśli chcesz wesprzeć moją pracę, możesz to zrobić przez [Buy me a coffee](https://www.buymeacoffee.com/Jacob22092).
