@@ -10,7 +10,6 @@ StudyTools to aplikacja webowa, która agreguje różne narzędzia przydatne dla
 - Obsługa wielojęzyczności (polski i angielski)
 - Popup z dodatkowymi informacjami o narzędziu, kategorią, obrazem i informacją o cenie
 - Animowane gradienty i elementy strony
-- Widget "Buy me a coffee" dla wsparcia twórcy
 
 ## Używane technologie
 
