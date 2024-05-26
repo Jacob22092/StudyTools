@@ -19,33 +19,6 @@ StudyTools to aplikacja webowa, która agreguje różne narzędzia przydatne dla
 - JavaScript
 - Font Awesome (ikony)
 
-## Struktura projektu
-`
-StudyTools/
-│
-├── index.html
-├── styles.css
-├── scripts.js
-├── photos/
-│ ├── ocr-app-2.0.jpg
-│ ├── ocr-app.jpg
-│ ├── goodtape.jpg
-│ ├── photoroom.jpg
-│ ├── photopea.jpg
-│ ├── canva.jpg
-│ ├── libreoffice.jpg
-│ ├── overleaf.jpg
-│ ├── notion.jpg
-│ ├── trello.jpg
-│ ├── anki.jpg
-│ ├── forest.jpg
-│ ├── habitica.jpg
-│ ├── audacity.jpg
-│ └── favicon.ico
-└── README.md
-`
-
-
 ## Zrzuty ekranu
 
 ![Screenshot](photos/screenshot.jpg)
