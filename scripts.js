@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { 
             name: 'OCR App 2.0', 
             description: {
-                pl: 'Zaawansowane narzędzie do rozpoznawania tekstu ze zdjęć.', 
+                pl: 'Zaawansowane narzędzie do rozpoznawania tekstu ze zdjęć', 
                 en: 'Advanced tool for text recognition from images'
             }, 
             link: 'https://jacob22092.github.io/OCR-App-2.0/', 
