@@ -12,35 +12,39 @@
     <link rel="icon" href="photos/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container">
             <h1 id="header-title">StudyTools</h1>
             <p id="header-description">Twoje ulubione narzędzia do nauki w jednym miejscu</p>
         </div>
     </header>
     <main>
-        <div class="container">
-            <section id="tools-list">
-                <h2 id="tools-list-title">Lista Narzędzi</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th id="table-header-name">Nazwa</th>
-                            <th id="table-header-description">Opis</th>
-                            <th id="table-header-action">Akcja</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tools">
-                        <!-- Narzędzia zostaną dodane dynamicznie za pomocą JavaScript -->
-                    </tbody>
-                </table>
-            </section>
-        </div>
+        <section class="about-section">
+            <div class="container about-container">
+                <div class="about-content">
+                    <h2>O StudyTools</h2>
+                    <p>StudyTools to zbiór najlepszych narzędzi, które pomogą Ci w nauce i pracy nad projektami. Znajdziesz tutaj narzędzia do rozpoznawania tekstu, edycji grafiki, zarządzania projektami i wiele więcej. Wszystkie narzędzia są dostępne w jednym miejscu, aby ułatwić Ci życie.</p>
+                </div>
+                <div class="about-image">
+                    <img src="photos/about-image.gif" alt="About StudyTools">
+                </div>
+            </div>
+        </section>
+        <section class="tools-section">
+            <div class="container">
+                <h2 id="tools-title">Lista Narzędzi</h2>
+                <div id="tools" class="tools-grid">
+                    <!-- Narzędzia zostaną dodane dynamicznie za pomocą JavaScript -->
+                </div>
+            </div>
+        </section>
     </main>
-    <div class="powered-by">
-        <p>Powered by J.H</p>
-        <img src="https://avatars.githubusercontent.com/u/42213414?s=400&u=5e5a6d95ff9940307882a67d22a50894c046f8b5&v=4" alt="Jakub Hyziak" class="profile-pic">
-    </div>
+    <footer>
+        <div class="container">
+            <p>Powered by J.H</p>
+            <img src="https://avatars.githubusercontent.com/u/42213414?s=400&u=5e5a6d95ff9940307882a67d22a50894c046f8b5&v=4" alt="Jakub Hyziak" class="profile-pic">
+        </div>
+    </footer>
 
     <!-- Popup Modal -->
     <div id="toolModal" class="modal">
