@@ -254,55 +254,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    const translations = {
-        pl: {
-            pageTitle: "StudyTools - Narzędzia dla Studentów",
-            headerTitle: "StudyTools",
-            headerDescription: "Twoje ulubione narzędzia do nauki w jednym miejscu",
-            toolsListTitle: "Lista Narzędzi",
-            tableHeaderName: "Nazwa",
-            tableHeaderDescription: "Opis",
-            tableHeaderAction: "Akcja",
-            freeInfo: {
-                free: "Narzędzie jest darmowe",
-                freePlan: "Narzędzie ma darmowy plan"
-            }
-        },
-        en: {
-            pageTitle: "StudyTools - Tools for Students",
-            headerTitle: "StudyTools",
-            headerDescription: "Your favorite study tools in one place",
-            toolsListTitle: "Tool List",
-            tableHeaderName: "Name",
-            tableHeaderDescription: "Description",
-            tableHeaderAction: "Action",
-            freeInfo: {
-                free: "This tool is free",
-                freePlan: "This tool has a free plan"
-            }
-        }
-    };
-
-    function setLanguage(language) {
-        document.title = translations[language].pageTitle;
-        document.getElementById('header-title').textContent = translations[language].headerTitle;
-        document.getElementById('header-description').textContent = translations[language].headerDescription;
-        document.getElementById('tools-list-title').textContent = translations[language].toolsListTitle;
-        document.getElementById('table-header-name').textContent = translations[language].tableHeaderName;
-        document.getElementById('table-header-description').textContent = translations[language].tableHeaderDescription;
-        document.getElementById('table-header-action').textContent = translations[language].tableHeaderAction;
-        
-        tools.forEach(tool => {
-            tool.translatedDescription = tool.description[language];
-            tool.translatedCategoryName = tool.category.name[language];
-            tool.translatedFreeInfo = tool.price === 'Free' ? translations[language].freeInfo.free : translations[language].freeInfo.freePlan;
-        });
-    }
-
-    const userLang = navigator.language || navigator.userLanguage;
-    const language = userLang.startsWith('pl') ? 'pl' : 'en';
-    setLanguage(language);
-
     const toolsList = document.getElementById('tools');
     const modal = document.getElementById('toolModal');
     const modalTitle = document.getElementById('modalTitle');
@@ -313,21 +264,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeModal = document.getElementsByClassName('close')[0];
 
     tools.forEach(tool => {
-        const listItem = document.createElement('tr');
+        const toolCard = document.createElement('div');
+        toolCard.className = 'tool-card';
         const visitButton = `<a href="${tool.link}" target="_blank"><button class="visit-btn"><i class="fas fa-external-link-alt"></i></button></a>`;
         const newIcon = tool.new ? '<i class="fas fa-star new-icon"></i>' : '';
-        listItem.className = tool.new ? 'new-tool' : '';
-        listItem.innerHTML = `<td><div class="tool-name-container">${newIcon}<span class="tool-name">${tool.name}</span></div></td><td>${tool.translatedDescription}</td><td>${visitButton}</td>`;
-        listItem.addEventListener('click', () => {
+        toolCard.innerHTML = `
+            <img src="${tool.image}" alt="${tool.name}">
+            <div class="tool-card-content">
+                <h3>${newIcon}${tool.name}</h3>
+                <p>${tool.description.pl}</p>
+                ${visitButton}
+            </div>`;
+        toolCard.addEventListener('click', () => {
             modalTitle.textContent = tool.name;
             modalImage.src = tool.image;
-            modalDescription.textContent = tool.translatedDescription;
-            modalCategory.textContent = tool.translatedCategoryName;
+            modalDescription.textContent = tool.description.pl;
+            modalCategory.textContent = tool.category.name.pl;
             modalCategory.className = `badge category-badge ${tool.category.color}`;
-            modalFreeInfo.textContent = tool.translatedFreeInfo;
+            modalFreeInfo.textContent = tool.price === 'Free' ? 'Narzędzie jest darmowe' : 'Narzędzie ma darmowy plan';
             modal.style.display = 'block';
         });
-        toolsList.appendChild(listItem);
+        toolsList.appendChild(toolCard);
     });
 
     closeModal.onclick = function() {
