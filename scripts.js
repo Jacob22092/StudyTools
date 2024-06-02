@@ -254,6 +254,61 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
+    const translations = {
+        pl: {
+            pageTitle: "StudyTools - Narzędzia dla Studentów",
+            headerTitle: "StudyTools",
+            headerDescription: "Twoje ulubione narzędzia do nauki w jednym miejscu",
+            toolsListTitle: "Lista Narzędzi",
+            tableHeaderName: "Nazwa",
+            tableHeaderDescription: "Opis",
+            tableHeaderAction: "Akcja",
+            freeInfo: {
+                free: "Narzędzie jest darmowe",
+                freePlan: "Narzędzie ma darmowy plan"
+            },
+            suggestTitle: "Proponuj Narzędzia",
+            suggestDescription: "Razem możemy zbudować wielką listę wspaniałych narzędzi, które pomogą nam wszystkim w nauce i pracy. Jeśli masz sugestię dotyczącą narzędzia, które moglibyśmy dodać, kliknij przycisk poniżej i wypełnij formularz Google.",
+            suggestButton: "Zaproponuj Narzędzie"
+        },
+        en: {
+            pageTitle: "StudyTools - Tools for Students",
+            headerTitle: "StudyTools",
+            headerDescription: "Your favorite study tools in one place",
+            toolsListTitle: "Tool List",
+            tableHeaderName: "Name",
+            tableHeaderDescription: "Description",
+            tableHeaderAction: "Action",
+            freeInfo: {
+                free: "This tool is free",
+                freePlan: "This tool has a free plan"
+            },
+            suggestTitle: "Suggest Tools",
+            suggestDescription: "Together we can build a great list of amazing tools to help us all in our studies and work. If you have a suggestion for a tool we could add, click the button below and fill out the Google form.",
+            suggestButton: "Suggest a Tool"
+        }
+    };
+
+    function setLanguage(language) {
+        document.title = translations[language].pageTitle;
+        document.getElementById('header-title').textContent = translations[language].headerTitle;
+        document.getElementById('header-description').textContent = translations[language].headerDescription;
+        document.getElementById('tools-title').textContent = translations[language].toolsListTitle;
+        document.getElementById('suggest-title').textContent = translations[language].suggestTitle;
+        document.getElementById('suggest-description').textContent = translations[language].suggestDescription;
+        document.getElementById('suggest-button').textContent = translations[language].suggestButton;
+        
+        tools.forEach(tool => {
+            tool.translatedDescription = tool.description[language];
+            tool.translatedCategoryName = tool.category.name[language];
+            tool.translatedFreeInfo = tool.price === 'Free' ? translations[language].freeInfo.free : translations[language].freeInfo.freePlan;
+        });
+    }
+
+    const userLang = navigator.language || navigator.userLanguage;
+    const language = userLang.startsWith('pl') ? 'pl' : 'en';
+    setLanguage(language);
+
     const toolsList = document.getElementById('tools');
     const modal = document.getElementById('toolModal');
     const modalTitle = document.getElementById('modalTitle');
@@ -264,27 +319,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeModal = document.getElementsByClassName('close')[0];
 
     tools.forEach(tool => {
-        const toolCard = document.createElement('div');
-        toolCard.className = 'tool-card';
+        const listItem = document.createElement('div');
         const visitButton = `<a href="${tool.link}" target="_blank"><button class="visit-btn"><i class="fas fa-external-link-alt"></i></button></a>`;
         const newIcon = tool.new ? '<i class="fas fa-star new-icon"></i>' : '';
-        toolCard.innerHTML = `
+        listItem.className = tool.new ? 'tool-card new-tool' : 'tool-card';
+        listItem.innerHTML = `
             <img src="${tool.image}" alt="${tool.name}">
             <div class="tool-card-content">
                 <h3>${newIcon}${tool.name}</h3>
-                <p>${tool.description.pl}</p>
+                <p>${tool.translatedDescription}</p>
                 ${visitButton}
             </div>`;
-        toolCard.addEventListener('click', () => {
+        listItem.addEventListener('click', () => {
             modalTitle.textContent = tool.name;
             modalImage.src = tool.image;
-            modalDescription.textContent = tool.description.pl;
-            modalCategory.textContent = tool.category.name.pl;
+            modalDescription.textContent = tool.translatedDescription;
+            modalCategory.textContent = tool.translatedCategoryName;
             modalCategory.className = `badge category-badge ${tool.category.color}`;
-            modalFreeInfo.textContent = tool.price === 'Free' ? 'Narzędzie jest darmowe' : 'Narzędzie ma darmowy plan';
+            modalFreeInfo.textContent = tool.translatedFreeInfo;
             modal.style.display = 'block';
         });
-        toolsList.appendChild(toolCard);
+        toolsList.appendChild(listItem);
     });
 
     closeModal.onclick = function() {
