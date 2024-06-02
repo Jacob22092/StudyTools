@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="StudyTools - Twoje ulubione narzędzia do nauki w jednym miejscu">
+    <meta name="description" content="StudyTools - Twoje ulubione narzędzia do nauki w jednym miejscu. Znajdź najlepsze narzędzia do nauki, zarządzania projektami, edycji grafiki i wiele więcej.">
+    <meta name="keywords" content="narzędzia do nauki, zarządzanie projektami, edycja grafiki, narzędzia edukacyjne, StudyTools">
+    <meta name="author" content="Jakub Hyziak">
     <title id="page-title">StudyTools - Narzędzia dla Studentów</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style">
+    <link rel="preload" href="scripts.js" as="script">
     <!-- Favicon -->
     <!-- Author of the icon: rsetiawan -->
     <link rel="icon" href="photos/favicon.ico" type="image/x-icon">
@@ -38,6 +43,13 @@
                 </div>
             </div>
         </section>
+        <section class="suggest-section">
+            <div class="container">
+                <h2 id="suggest-title">Proponuj Narzędzia</h2>
+                <p id="suggest-description">Razem możemy zbudować wielką listę wspaniałych narzędzi, które pomogą nam wszystkim w nauce i pracy. Jeśli masz sugestię dotyczącą narzędzia, które moglibyśmy dodać, kliknij przycisk poniżej i wypełnij formularz Google.</p>
+                <a id="suggest-button" href="https://forms.gle/KCnomTAxUky22jQQ7" target="_blank" class="suggest-button">Zaproponuj Narzędzie</a>
+            </div>
+        </section>
     </main>
     <footer>
         <div class="container">
@@ -60,7 +72,7 @@
         </div>
     </div>
 
-    <script src="scripts.js"></script>
-    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="Jacob22092" data-description="Support me on Buy me a coffee!" data-message="" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+    <script src="scripts.js" defer></script>
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="Jacob22092" data-description="Support me on Buy me a coffee!" data-message="" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18" defer></script>
 </body>
 </html>
