@@ -1,3 +1,4 @@
+/* Wyrównane style dla lepszej wydajności */
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
@@ -172,6 +173,40 @@ button.visit-btn:hover {
 button.visit-btn i {
   font-size: 1.2em;
   color: white;
+}
+
+.suggest-section {
+  background: #f5f5f5;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.suggest-section h2 {
+  font-size: 2.5em;
+  color: #3a1c71;
+  margin-bottom: 20px;
+}
+
+.suggest-section p {
+  font-size: 1.2em;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.suggest-button {
+  background-color: #d76d77;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.suggest-button:hover {
+  background-color: #ffaf7b;
 }
 
 .badge {
