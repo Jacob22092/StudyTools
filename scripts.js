@@ -318,29 +318,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalFreeInfo = document.getElementById('modalFreeInfo');
     const closeModal = document.getElementsByClassName('close')[0];
 
-    tools.forEach(tool => {
-        const listItem = document.createElement('div');
-        const visitButton = `<a href="${tool.link}" target="_blank"><button class="visit-btn"><i class="fas fa-external-link-alt"></i></button></a>`;
-        const newIcon = tool.new ? '<i class="fas fa-star new-icon"></i>' : '';
-        listItem.className = tool.new ? 'tool-card new-tool' : 'tool-card';
-        listItem.innerHTML = `
-            <img src="${tool.image}" alt="${tool.name}">
-            <div class="tool-card-content">
-                <h3>${newIcon}${tool.name}</h3>
-                <p>${tool.translatedDescription}</p>
-                ${visitButton}
-            </div>`;
-        listItem.addEventListener('click', () => {
-            modalTitle.textContent = tool.name;
-            modalImage.src = tool.image;
-            modalDescription.textContent = tool.translatedDescription;
-            modalCategory.textContent = tool.translatedCategoryName;
-            modalCategory.className = `badge category-badge ${tool.category.color}`;
-            modalFreeInfo.textContent = tool.translatedFreeInfo;
-            modal.style.display = 'block';
+    function displayTools(toolsToShow) {
+        toolsList.innerHTML = '';
+        toolsToShow.forEach(tool => {
+            const listItem = document.createElement('div');
+            const visitButton = `<a href="${tool.link}" target="_blank"><button class="visit-btn"><i class="fas fa-external-link-alt"></i> Visit</button></a>`;
+            const newIcon = tool.new ? '<i class="fas fa-star new-icon"></i>' : '';
+            listItem.className = tool.new ? 'tool-card new-tool ' + tool.category.color : 'tool-card ' + tool.category.color;
+            listItem.innerHTML = `
+                <img src="${tool.image}" alt="${tool.name}">
+                <div class="tool-card-content">
+                    <h3>${newIcon}${tool.name}</h3>
+                    <p>${tool.translatedDescription}</p>
+                    ${visitButton}
+                </div>`;
+            listItem.addEventListener('click', () => {
+                modalTitle.textContent = tool.name;
+                modalImage.src = tool.image;
+                modalDescription.textContent = tool.translatedDescription;
+                modalCategory.textContent = tool.translatedCategoryName;
+                modalCategory.className = `badge category-badge ${tool.category.color}`;
+                modalFreeInfo.textContent = tool.translatedFreeInfo;
+                modal.style.display = 'block';
+            });
+            toolsList.appendChild(listItem);
         });
-        toolsList.appendChild(listItem);
-    });
+    }
+
+    displayTools(tools);
 
     closeModal.onclick = function() {
         modal.style.display = 'none';
@@ -350,5 +355,32 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target == modal) {
             modal.style.display = 'none';
         }
+    }
+
+    // Filtruj narzędzia według kategorii
+    const categoryButtons = document.querySelectorAll('.category-button');
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.getAttribute('data-category');
+            if (category === 'all') {
+                displayTools(tools);
+            } else {
+                const filteredTools = tools.filter(tool => tool.category.color === category);
+                displayTools(filteredTools);
+            }
+        });
+    });
+
+    // Cookie Consent
+    const cookieConsent = document.getElementById('cookieConsent');
+    const acceptCookies = document.getElementById('acceptCookies');
+
+    if (!localStorage.getItem('cookiesAccepted')) {
+        cookieConsent.style.display = 'block';
+    }
+
+    acceptCookies.onclick = () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        cookieConsent.style.display = 'none';
     }
 });
